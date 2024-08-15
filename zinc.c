@@ -1,8 +1,9 @@
 // SPDX-License-Identifier: GPL-2.0
 /*
- *  MQ Deadline i/o scheduler - adaptation of the legacy deadline scheduler,
- *  for the blk-mq scheduling framework
- *
+ *  ZINC I/O scheduler - adaptation of the mq-deadline scheduler (from Jens Axboe)
+ *  Copyright (C) 2024 @Large Research 
+ * 
+ *  An extension of the mq-deadline scheduler (mq-deadline.c)
  *  Copyright (C) 2016 Jens Axboe <axboe@kernel.dk>
  */
 #include <linux/kernel.h>
@@ -1587,6 +1588,6 @@ static void __exit deadline_exit(void)
 module_init(deadline_init);
 module_exit(deadline_exit);
 
-MODULE_AUTHOR("Anon");
+MODULE_AUTHOR("@Large Research");
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("ZINC IO scheduler");
