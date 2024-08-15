@@ -3,8 +3,8 @@
 ZINC - A ZNS Interference-aware NVMe Command Scheduler is a configurable I/O scheduler for NVMe ZNS SSDs.
 It allows prioritizing I/O commands (write, read) over I/O management operations (reset, finish).
 
-[!WARNING]
-ZINC is based on Linux 6.3.8 and relies on it codebase, it is not evaluated on other Linux versions and might require extensive modifications to run it on other kernel versions.
+> [!WARNING]
+> ZINC is based on Linux 6.3.8 and relies on it codebase, it is not evaluated on other Linux versions and might require extensive modifications to run it on other kernel versions.
 
 ## How to install
 
