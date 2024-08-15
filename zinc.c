@@ -3,7 +3,7 @@
  *  ZINC I/O scheduler - adaptation of the mq-deadline scheduler (from Jens Axboe)
  *  Copyright (C) 2024 @Large Research 
  * 
- *  An extension of the mq-deadline scheduler (mq-deadline.c)
+ *  Based on the mq-deadline scheduler (mq-deadline.c), code annotated with ZINC is added
  *  Copyright (C) 2016 Jens Axboe <axboe@kernel.dk>
  */
 #include <linux/kernel.h>
