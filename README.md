@@ -55,16 +55,18 @@ echo zinc | sudo tee /sys/block/nvme*n*/queue/scheduler # nvme*n* is the device 
 
 ### Configuration options
 
-* reset_timer_interval: window when to retry issuing a reset in milliseconds
-* write_ratio: the number of write requests before a reset can be issued (in 8 KiB units)
-* pending_requests_threshold: below this number of in-flight write requests, resets are not stalled (no scheduling, also in 8 kiB units)
-* max_priority: number of retries for reset (to prevent reset starvation)
+Both ZNS management operations (i.e., reset, finish) have identical parameters, except for their name. This distinction allows using different configurations for reset and finish. We provide the following parameters:
+
+* {reset,finish}_epoch_interval: window when to retry issuing a reset in milliseconds
+* {reset,finish}_command_tokens: the number of write requests before a reset can be issued (in 8 KiB units)
+* {reset,finish}_minimum_concurrency_treshold: below this number of in-flight write requests, managemet operations are not stalled (no scheduling, also in 8 kiB units)
+* {reset,finish}_maximum_epoch_holds: number of retries for reset (to prevent reset starvation)
 
 ## How to configure
 
 1. First assign ZINC to an NVMe device (see `How to use ZINC`)
-2. Change the configuration options (in `/sys/block/nvme*n*/queue/iosched/`), for example to set the `reset_timer_interval` do:
+2. Change the configuration options (in `/sys/block/nvme*n*/queue/iosched/`), for example to set the `_maximum_epoch_holds` for `reset` do:
 
 ```bash
-echo 64 | sudo tee /sys/block/nvme*n*/queue/iosched/reset_timer_interval
+echo 3 | sudo tee /sys/block/nvme*n*/queue/iosched/reset_maximum_epoch_holds
 ```
