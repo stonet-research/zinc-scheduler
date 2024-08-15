@@ -1,4 +1,4 @@
-# README
+# ZINC I/O scheduler
 
 ZINC - A ZNS Interference-aware NVMe Command Scheduler is a configurable I/O scheduler for NVMe ZNS SSDs.
 It allows prioritizing I/O commands (write, read) over I/O management operations (reset, finish).
